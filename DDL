@@ -1,0 +1,24 @@
+sql = """
+CREATE TABLE "Customer_Table" ( 
+"CustomerID" INTEGER NOT NULL,
+"Fname" TEXT,
+"Lname" TEXT,
+"Username" TEXT,
+"UserPW" TEXT,
+"Address1" TEXT,
+"Postcode" TEXT,
+PRIMARY KEY("CustomerID" AUTOINCREMENT)
+);
+CREATE TABLE "Review_Table" ( 
+"ReviewID" INTEGER NOT NULL,
+"ReviewWriteUp" TEXT,
+"ReviewTopic" TEXT,
+"CustomerID" TEXT,
+PRIMARY KEY("ReviewID" AUTOINCREMENT)
+CONSTRAINT "CustomerID"  FOREIGN KEY("CustomerID") REFERENCES "Customer_Table"("CustomerID")
+
+);
+insert into Customer_Table  ( Fname, Lname, Username, UserPW, Address1, Postcode) values ('Jono', 'Allan', 'JJ', 'Password', '10 Downing street', 'po107du');
+insert into Customer_Table  ( Fname, Lname, Username, UserPW, Address1, Postcode) values ('Dave', 'Allan', 'DD', 'Password1', '11 Downing street', 'po107de');
+insert into Review_Table (ReviewWriteUp, ReviewTopic, CustomerID) values ('I think that shovels are pretty cool!', 'Its a Shovel','1');
+"""
